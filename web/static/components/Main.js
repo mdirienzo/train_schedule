@@ -1,6 +1,4 @@
-require('normalize.css/normalize.css');
-require('styles/App.css');
-require('styles/core.scss');
+require('../styles/core.scss');
 
 import React from 'react';
 

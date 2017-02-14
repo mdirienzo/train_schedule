@@ -3,6 +3,7 @@
 
 // NOTE: Order of imports is incredibly important here!
 // CSS Resets:
+@import "~normalize.css/normalize.css";
 @import "partials/html5bp";
 @import "partials/developerbp"; // TODO: Change this to only load up in dev mode.
 //
