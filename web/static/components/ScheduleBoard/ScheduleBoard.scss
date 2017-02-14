@@ -1,0 +1,45 @@
+@import "../../styles/base/variables";
+$schedule-board-font-color: $brand-secondary-color;
+$schedule-board-spacing: $base-spacing;
+$schedule-board-cancelled-color: $brand-error-color;
+$schedule-board-on-time-color: $brand-success-color;
+$schedule-board-warning-color: $brand-notification-color;
+
+.c-schedule-board {
+  background-color: $brand-primary-color;
+  padding: $schedule-board-spacing;
+
+  table {
+    table-layout: auto;
+  }
+}
+
+.c-schedule-board__header {
+  h2 { display: inline-block;}
+
+  .c-schedule-board__header-clock {
+    float:right;
+  }
+}
+
+.c-schedule-board__row {
+  color: $schedule-board-font-color;
+
+  .on-time {
+    color: $schedule-board-on-time-color;
+  }
+
+  .delayed {
+    color: $schedule-board-warning-color;
+  }
+
+  .cancelled {
+    color: $schedule-board-cancelled-color;
+  }
+
+  td:nth-child(1) {}
+  td:nth-child(2) { width: 30%; }
+  td:nth-child(3) {}
+  td:nth-child(4) {}
+  td:nth-child(5) {}
+}

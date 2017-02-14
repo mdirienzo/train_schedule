@@ -19,7 +19,7 @@
     "test:watch": "karma start --autoWatch=true --singleRun=false",
     "webpack:dist": "npm run copy & webpack --env=dist",
     "webpack": "npm run copy & webpack --env=dev || exit 0",
-    "webpack:watch": "npm run copy & webpack --watch-stdin --progress --color --env=dev || exit 0"
+    "webpack:watch": "webpack --watch-stdin --progress --color --env=dev || exit 0"
   },
   "repository": "",
   "keywords": [],
