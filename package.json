@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "clean": "rimraf priv/*",
-    "copy": "copyfiles -f ./web/static/index.html ./web/static/favicon.ico ./priv/static/",
+    "copy": "copyfiles -f ./web/static/favicon.ico ./priv/static/",
     "dist": "npm run copy & webpack --env=dist",
     "lint": "eslint ./web/static/ || exit 0",
     "posttest": "npm run lint",
@@ -18,7 +18,8 @@
     "test": "karma start",
     "test:watch": "karma start --autoWatch=true --singleRun=false",
     "webpack:dist": "npm run copy & webpack --env=dist",
-    "webpack": "npm run copy & webpack --env=dev"
+    "webpack": "npm run copy & webpack --env=dev || exit 0",
+    "webpack:watch": "npm run copy & webpack --watch-stdin --progress --color --env=dev || exit 0"
   },
   "repository": "",
   "keywords": [],
