@@ -1,0 +1,41 @@
+// This is the primary manifest file. This MUST be at the top of the
+// compiled .css.
+
+// NOTE: Order of imports is incredibly important here!
+// CSS Resets:
+@import "partials/html5bp";
+@import "partials/developerbp"; // TODO: Change this to only load up in dev mode.
+//
+// // Core Libraries (Bourbon/Neat/Bitters)
+@import "~bourbon/core/_bourbon";
+@import "~bourbon-neat/app/assets/stylesheets/_neat";
+@import "base/base";
+
+// Core Imports
+// @import "common-mixins";
+
+// TODO: This is DIRTY, fix this later.
+// @import '../components/components';
+
+body {
+    background: $base-background-color;
+}
+
+#container {
+    width: 85%;
+    max-width: $max-content-width;
+    margin: 1em auto;
+}
+
+.is-hidden {
+    display: none;
+}
+
+svg#icon-import {
+    height:0px;
+    width: 0px;
+    display:none;
+}
+
+
+@import "partials/print";
