@@ -4,16 +4,17 @@ import React from 'react';
 // TimeStamp,Origin,Trip,Destination,ScheduledTime,Lateness,Track,Status
 class ScheduleBoardComponent extends React.Component {
 
-  // Expects a json representation of all schedules.
+  // Do something with this
   defaultProps = {
-    schedules: []
+    schedules: [], // Expects a json representation of all schedules.
+    title: 'Commuter Rail'
   }
 
   render() {
     return (
       <div className="c-schedule-board">
         <div className="c-schedule-board__header">
-          <h2>Commuter Rail</h2>
+          <h2>{this.props.title}</h2>
           <span className='c-schedule-board__header-clock'>{this.localTimeFromTimestamp(new Date())}</span>
         </div>
         <table>

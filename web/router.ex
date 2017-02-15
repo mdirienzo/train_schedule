@@ -23,6 +23,6 @@ defmodule TrainSchedule.Router do
   scope "/", TrainSchedule do
     pipe_through :api
 
-    get "/schedules", ScheduleController, :export
+    get "/schedules", ScheduleController, :index
   end
 end
