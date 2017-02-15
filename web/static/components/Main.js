@@ -26,6 +26,13 @@ class AppComponent extends React.Component {
 
   componentDidMount () {
     this.makeScheduleGetRequest();
+    this.interval = setInterval( () => {
+      this.makeScheduleGetRequest();
+    }, 30000);
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval);
   }
 
   makeScheduleGetRequest () {

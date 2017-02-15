@@ -4,10 +4,15 @@ $schedule-board-spacing: $base-spacing;
 $schedule-board-cancelled-color: $brand-error-color;
 $schedule-board-on-time-color: $brand-success-color;
 $schedule-board-warning-color: $brand-notification-color;
+$schedule-board-border-radius: $base-border-radius;
+$schedule-board-edge-border: $base-border-thick;
 
 .c-schedule-board {
   background-color: $brand-primary-color;
   padding: $schedule-board-spacing;
+  border-radius: $schedule-board-border-radius;
+  border: $schedule-board-edge-border;
+  margin: $schedule-board-spacing 0;
 
   table {
     table-layout: auto;
