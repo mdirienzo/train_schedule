@@ -45,20 +45,23 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
 $off-white: whitesmoke;
-$sign-orange: #ff9966;
+$sign-orange: #E3AA00;
+$blue-primary: #025CA1;
+$blue-dark: #00213A;
+$blue-medium: #003259
 
 // Colors - Try using these more context-related ones
-$brand-primary-color: $dark-gray;
+$brand-primary-color: $blue-primary;
 $brand-secondary-color: $sign-orange;
 $brand-error-color: $red;
 $brand-notification-color: $yellow;
 $brand-success-color: $green;
 
 // Font Colors
-$base-font-color: $light-gray;
+$base-font-color: $brand-primary-color;
 $action-color: $blue;
 $primary-text-highlight-color: $blue;
-$primary-cohesive-font-color: $light-gray;
+$primary-cohesive-font-color: $base-font-color;
 
 // Border
 $base-border-color: $base-font-color;
@@ -66,9 +69,9 @@ $base-border: 1px solid $base-border-color;
 $base-border-thick: thick solid $base-border-color;
 
 // Background Colors
-$base-background-color: $dark-blue;
+$base-background-color: $blue-medium;
 $secondary-background-color: tint($base-background-color, 75%);
-$primary-cohesive-background-color: $brand-primary-color;
+$primary-cohesive-background-color: $blue-dark;
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
