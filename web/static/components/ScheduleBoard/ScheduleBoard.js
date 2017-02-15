@@ -15,7 +15,11 @@ class ScheduleBoardComponent extends React.Component {
       <div className="c-schedule-board">
         <div className="c-schedule-board__header">
           <h2>{this.props.title}</h2>
-          <span className='c-schedule-board__header-clock'>{this.localTimeFromTimestamp(new Date())}</span>
+          <div className='c-schedule-board__header-clock'>
+            <p>Current Time</p>
+            <p>{this.localTimeFromTimestamp(new Date())}</p>
+          </div>
+
         </div>
         <table>
         <thead>

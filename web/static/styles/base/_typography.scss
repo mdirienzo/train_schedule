@@ -1,3 +1,5 @@
+@import "~bourbon/core/_bourbon";
+
 body {
   color: $base-font-color;
   font-family: $base-font-family;
@@ -16,7 +18,7 @@ footer {
 // Fluid Typography
 html {
   font-size: $base-font-size; //fallback
-  font-size: responsive; //postcss-responsive-type
+  font-size: responsive; //postcss-responsive-type TODO: fix this with webpack later
 }
 
 h1,
@@ -31,10 +33,10 @@ h6 {
   margin: 0 0 $small-spacing;
 }
 
-// Setting up scaling headers programatically.
+// Setting up scaling headers programatically. TODO: fix this with webpack later
 @for $i from 1 through 6 {
   h#{$i} {
-    font-size: modular-scale((6 - $i), $base-font-size, 1.1);
+    font-size: modular-scale((6 - $i), $base-font-size, 1.2);
   }
 }
 
