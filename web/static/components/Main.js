@@ -8,7 +8,8 @@ class AppComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      schedules: [],
+      northStationSchedules: [],
+      southStationSchedules: []
     };
 
   }
@@ -17,7 +18,8 @@ class AppComponent extends React.Component {
     return (
       <div className="o-app">
         <h1>MBTA Train Schedule</h1>
-        <ScheduleBoard schedules={this.state.schedules}/>
+        <ScheduleBoard schedules={this.state.northStationSchedules} title="North Station"/>
+        <ScheduleBoard schedules={this.state.southStationSchedules} title="South Station"/>
       </div>
     );
   }
@@ -33,7 +35,16 @@ class AppComponent extends React.Component {
       return response.text();
     }).then( (response) => {
       const json = this.csvToJson(response)
-      this.setState({schedules: json});
+
+      // This can be optimized.
+      const southStation = json.filter( (trainSchedule)=> {
+        return trainSchedule.Origin == "South Station";
+      });
+      const northStation = json.filter( (trainSchedule)=> {
+        return trainSchedule.Origin == "North Station";
+      });
+
+      this.setState({northStationSchedules: northStation, southStationSchedules: southStation});
     });
   }
 
