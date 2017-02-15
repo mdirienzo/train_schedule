@@ -14,7 +14,7 @@ class ScheduleBoardComponent extends React.Component {
       <div className="c-schedule-board">
         <div className="c-schedule-board__header">
           <h2>Commuter Rail</h2>
-          <span className='c-schedule-board__header-clock'>{this.getLocalTimeFromTimestamp(new Date())}</span>
+          <span className='c-schedule-board__header-clock'>{this.localTimeFromTimestamp(new Date())}</span>
         </div>
         <table>
         <thead>
@@ -30,11 +30,11 @@ class ScheduleBoardComponent extends React.Component {
           {this.props.schedules.map((schedule, index) =>{
             return (
               <tr key={index} className='c-schedule-board__row'>
-                <td>{this.getLocalTimeFromTimestamp(schedule.ScheduledTime * 1000)}</td>
+                <td>{this.localTimeFromTimestamp(schedule.ScheduledTime * 1000)}</td>
                 <td>{schedule.Destination}</td>
                 <td>{schedule.Trip}</td>
                 <td>{schedule.Track || 'TBD'}</td>
-                <td className={this.getDisplayClassForStatus(schedule.Status)}>{schedule.Status}</td>
+                <td className={this.displayClassForStatus(schedule.Status)}>{schedule.Status}</td>
               </tr>
             );
           })}
@@ -45,7 +45,7 @@ class ScheduleBoardComponent extends React.Component {
     );
   }
 
-  getLocalTimeFromTimestamp(timestamp) {
+  localTimeFromTimestamp(timestamp) {
     const time = new Date(timestamp);
     const h = time.getHours();
     const m = this.prependZeroIfNeeded(time.getMinutes());
@@ -59,7 +59,7 @@ class ScheduleBoardComponent extends React.Component {
     return i;
   }
 
-  getDisplayClassForStatus(status) {
+  displayClassForStatus(status) {
     let displayClass = "on-time";
     if (['Info to follow', 'TBD', 'Delayed', 'Late', 'Hold'].includes(status)) {
       displayClass = "delayed";

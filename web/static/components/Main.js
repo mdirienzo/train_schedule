@@ -23,9 +23,39 @@ class AppComponent extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({
-      schedules: this.getSchedules()
+    this.makeScheduleGetRequest();
+  }
+
+  makeScheduleGetRequest () {
+    const request = new Request('/schedules');
+
+    fetch(request).then( (response) => {
+      return response.text();
+    }).then( (response) => {
+      const json = this.csvToJson(response)
+      this.setState({schedules: json});
     });
+  }
+
+  csvToJson(csv){
+    csv = csv.trim()
+    csv = csv.replace(/['"\r]/g, ''); // Remove quotation marks
+
+    let result  = [];
+    let lines   = csv.split("\n");
+    let headers = lines[0].split(",");
+
+    for(let i = 1; i < lines.length; i++){
+      var obj = {};
+      var currentline = lines[i].split(",");
+
+      for(let j = 0; j < headers.length; j++){
+        obj[headers[j]] = currentline[j];
+      }
+      result.push(obj);
+    }
+
+    return result;
   }
 
   getSchedules() {

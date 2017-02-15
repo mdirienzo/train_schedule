@@ -10,7 +10,7 @@ defmodule TrainSchedule.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "csv"]
   end
 
   scope "/", TrainSchedule do
@@ -20,7 +20,9 @@ defmodule TrainSchedule.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TrainSchedule do
-  #   pipe_through :api
-  # end
+  scope "/", TrainSchedule do
+    pipe_through :api
+
+    get "/schedules", ScheduleController, :export
+  end
 end
